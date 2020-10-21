@@ -3,8 +3,9 @@ import re
 
 def sort_string(user_str, reverse_order=False):
     parse_list = re.sub('[^a-zA-Z0-9 ]', '', user_str).split()
-    parse_list.sort(reverse=reverse_order)
-    return parse_list
+    parse_dict = {item.lower(): item for item in parse_list}
+    sorted_list = sorted(parse_dict, reverse=reverse_order)
+    return [parse_dict[key] for key in sorted_list]
 
 
 def main():
